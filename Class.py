@@ -6,4 +6,12 @@ class Subject:
         self.time = time
         self.proffesor = proffesor
         self.zoomNumber = zoomNumber
+        
+
+print("Hello, this is a Schedule programm!")
+print("Choose a option")
+print("\'A\' for adding a subject")
+print("\'B\' for deleting a subject")
+print("\'C\' for changing a subject")
+print("\'D\' for see your schedule")
 
