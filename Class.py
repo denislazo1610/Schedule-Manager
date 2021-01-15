@@ -9,11 +9,12 @@ class Subject:
         
 
 print("Hello, this is a Schedule programm!")
-print("Choose a option")
+print("Choose a option:\n")
 print("\'A\' for adding a subject")
 print("\'B\' for deleting a subject")
 print("\'C\' for changing a subject")
 print("\'D\' for see your schedule")
+print("\'E\' for exit of this programm\n")
 
 choice = input('Enter your choice:')
 
@@ -25,6 +26,8 @@ elif ((choice == 'C') or (choice == 'c')):
     print('CCCCC')
 elif ((choice == 'D') or (choice == 'd')):
     print('DDDDD')
+elif ((choice == 'E') or (choice == 'e')):
+    print('EEEEE')
 else:
-    print('Invalid input')
+    print('Invalid input')e
 
