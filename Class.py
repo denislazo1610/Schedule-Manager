@@ -1,5 +1,5 @@
 class Subject:
-    def __init__(self, name, time, difficulty, time, proffesor, zoomNumber):
+    def __init__(self, name, time, difficulty, proffesor, zoomNumber):
         self.name = name
         self.time = time
         self.difficulty = difficulty
