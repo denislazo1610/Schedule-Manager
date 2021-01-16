@@ -28,6 +28,13 @@ def options():
 def optionInAction(choice, subjects):
     if((choice == 'A') or (choice == 'a')):
         user = Subject.from_input()
+        if (user.time[1] == ' '):
+            user.time = '0' + user.time
+
+        if(user.time[0] == ' '):
+            user.time = user.time[1:]
+            user.time = '0' + user.time
+
         subjects[user.name] = user
         print("Subject was added to you schedule\n")
         options()
@@ -56,39 +63,59 @@ def optionInAction(choice, subjects):
             print(key)
         print('\n')
         respuesta = input('What subject do you want to change? ')
-        print('This is all the information of that subject:\n')
-        print("Name: " + subjects[respuesta].name)
-        print("Time: " + subjects[respuesta].time)
-        print("Difficulty: " + subjects[respuesta].difficulty)
-        print("Professor: " + subjects[respuesta].professor)
-        print("Zoom number: " + subjects[respuesta].zoomNumber)
-        print('\n')
+        if respuesta in subjects:
+            print('This is all the information of that subject:\n')
+            print("Name: " + subjects[respuesta].name)
+            print("Time: " + subjects[respuesta].time)
+            print("Difficulty: " + subjects[respuesta].difficulty)
+            print("Professor: " + subjects[respuesta].professor)
+            print("Zoom number: " + subjects[respuesta].zoomNumber)
+            print('\n')
 
-        change = input("What do you want to change? ")
-        print('\n')
-        newInformation = input('What do you want to put instead? ')
-        print('\n')
+            change = input("What do you want to change? ")
+            print('\n')
+            newInformation = input('What do you want to put instead? ')
+            print('\n')
 
-        if (change == 'Name'): 
-            subjects[respuesta].name = newInformation
-            subjects[newInformation] = subjects.pop(respuesta)
-        elif ((change == 'Time') or (change == 'time')):
-            subjects[respuesta].time = newInformation
-        elif ((change == 'Difficulty') or (change == 'difficulty')):
-            subjects[respuesta].difficulty = newInformation
-        elif ((change == 'Professor') or (change == 'professor')):
-            subjects[respuesta].professor = newInformation
-        elif ((change == 'Zoom number') or (change == 'zoom number')):
-            subjects[respuesta].zoomNumber = newInformation
+            if (change == 'Name'): 
+                subjects[respuesta].name = newInformation
+                subjects[newInformation] = subjects.pop(respuesta)
+            elif ((change == 'Time') or (change == 'time')):
+                subjects[respuesta].time = newInformation
+            elif ((change == 'Difficulty') or (change == 'difficulty')):
+                subjects[respuesta].difficulty = newInformation
+            elif ((change == 'Professor') or (change == 'professor')):
+                subjects[respuesta].professor = newInformation
+            elif ((change == 'Zoom number') or (change == 'zoom number')):
+                subjects[respuesta].zoomNumber = newInformation
+            else:
+                print('Change denied')
         else:
-            print('Change denied')
-        
+            print('That subject is not included\n')
+
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects)
-
+    
     elif ((choice == 'D') or (choice == 'd')):
-        print('DDDDD\n')
+        Schedule = [['     ','Monday    ', 'Tuesday    ', 'Wednesday    ','Thursday    ', 'Friday    ', 'Saturday    '] 
+        , ['06 am'],['07 am'],['08 am'],['09 am'],['10 am'], ['11 am'],['12 pm'],['01 pm'],['02 pm'],['03 pm'],['04 pm'],['05 pm']]  
+        print('\n')
+        # AQUI LO DEJE
+        for key in subjects:
+            print(subjects[key].name)
+            print(subjects[key].time)
+
+        for i in range(len(Schedule)):
+            for j in range(len(Schedule[i])):
+                print(Schedule[i][j], end=' ')
+            print()    
+        print('\n')
+        correction = input('Do you like your schedule?')
+        if ((correction == 'Yes')or (correction == 'yes')):
+            print('Nice!')
+        else:
+            print('You can change it')
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects)
@@ -113,11 +140,4 @@ options()
 choice = input('Enter your choice:')
 subjects = {}
 optionInAction(choice, subjects)
-
-#print('wanna check out your subjects?')
-#answer = input('answer yes or no:')
-#if (answer == 'yes'):
-  
-#else:
-    #print('That is all')
 
