@@ -84,6 +84,12 @@ def optionInAction(choice, subjects, Schedule):
                 subjects[respuesta].name = newInformation
                 subjects[newInformation] = subjects.pop(respuesta)
             elif ((change == 'Time') or (change == 'time')):
+                if (newInformation[1] == ' '):
+                    newInformation = '0' + newInformation
+
+                if(newInformation[0] == ' '):
+                    newInformation = newInformation[1:]
+                    newInformation = '0' + newInformation
                 subjects[respuesta].time = newInformation
             elif ((change == 'Days') or (change == 'days')):
                 subjects[respuesta].days = newInformation
@@ -134,7 +140,10 @@ def optionInAction(choice, subjects, Schedule):
         optionInAction(choice, subjects, Schedule)
 
     elif ((choice == 'E')) or (choice == 'e'):
-        print('EEEEEE\n')
+        print('\n')
+        newFile = input('Create a file: \n')
+        myFile = open(newFile, "w+")
+
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
