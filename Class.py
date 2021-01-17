@@ -142,7 +142,13 @@ def optionInAction(choice, subjects, Schedule):
     elif ((choice == 'E')) or (choice == 'e'):
         print('\n')
         newFile = input('Create a file: \n')
-        myFile = open(newFile, "w+")
+
+        with open(newFile, "w+") as writer:
+            for j in range(len(Schedule)):
+                for i in range(len(Schedule[j])):
+                    information = (Schedule[j][i])
+                    writer.write(information)
+                writer.write("\n")
 
         options()
         choice = input('Enter your choice:')
