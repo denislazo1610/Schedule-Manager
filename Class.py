@@ -121,7 +121,9 @@ def optionInAction(choice, subjects, Schedule):
                             if(len(subjects[key].name) < len(Schedule[i][j])):
                                 diferencia = (len(Schedule[i][j]) - (len(subjects[key].name)))
                                 Schedule[i][j+1] = (diferencia*' ') + Schedule[i][j+1]
-
+                            elif(len(subjects[key].name) > len(Schedule[i][j])):
+                                 diferencia = (len(subjects[key].name)-(len(Schedule[i][j])))
+                
                             Schedule[i][j] = subjects[key].name
 
 
