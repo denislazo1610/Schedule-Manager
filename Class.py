@@ -126,6 +126,17 @@ def optionInAction(choice, subjects, Schedule):
                 
                             Schedule[i][j] = subjects[key].name
 
+        
+        #for key in subjects:
+        #    hardOfIt = subjects[key].difficulty
+        #    for s in range(len(Level[0])):
+        #        if (Level[0][s] == hardOfIt):
+
+
+        #for j in range(len(Level)):
+        #        for i in range(len(Level[j])):
+        #            print(Level[j][i], end = " ")
+
 
         for i in range(len(Schedule)):
             for j in range(len(Schedule[i])):
@@ -179,9 +190,14 @@ Schedule = [['     ','Monday','    ', 'Tuesday','    ', 'Wednesday','    ','Thur
         ,['03 pm','      ','    ','       ','    ','         ','    ','        ','    ','      ','    ','        ','    ']
         ,['04 pm','      ','    ','       ','    ','         ','    ','        ','    ','      ','    ','        ','    ']
         ,['05 pm','      ','    ','       ','    ','         ','    ','        ','    ','      ','    ','        ','    ']] 
+
+Level = [["Hard:     ", "Medium:    ", "Easy:    "]]
+
 print("Hello, this is a Schedule programm!")    
 options()
 choice = input('Enter your choice:')
 subjects = {}
 optionInAction(choice, subjects, Schedule)
+
+
 
