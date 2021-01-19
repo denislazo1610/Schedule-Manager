@@ -127,16 +127,7 @@ def optionInAction(choice, subjects, Schedule):
                             Schedule[i][j] = subjects[key].name
 
         
-        #for key in subjects:
-        #    hardOfIt = subjects[key].difficulty
-        #    for s in range(len(Level[0])):
-        #        if (Level[0][s] == hardOfIt):
-
-
-        #for j in range(len(Level)):
-        #        for i in range(len(Level[j])):
-        #            print(Level[j][i], end = " ")
-
+        
 
         for i in range(len(Schedule)):
             for j in range(len(Schedule[i])):
