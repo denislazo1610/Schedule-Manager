@@ -187,9 +187,11 @@ def optionInAction(choice, subjects, Schedule):
         optionInAction(choice, subjects, Schedule)
 
     elif ((choice == 'Exit') or (choice == 'exit')):
+        os.system("cls")
         print('Thank you')
 
     else:
+        os.system("cls")
         print('Invalid input\n')
         options()
         choice = input('Enter your choice:')
