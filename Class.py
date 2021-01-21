@@ -73,7 +73,7 @@ def optionInAction(choice, subjects, Schedule):
             print("Difficulty: " + subjects[respuesta].difficulty)
             print("Professor: " + subjects[respuesta].professor)
             print("Zoom number: " + subjects[respuesta].zoomNumber)
-            print('\n')
+            print('\n') 
 
             change = input("What do you want to change? ")
             print('\n')
