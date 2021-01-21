@@ -1,3 +1,5 @@
+import os
+
 class Subject:
     def __init__(self, name, time, days, difficulty, professor, zoomNumber):
         self.name = name
@@ -29,6 +31,10 @@ def options():
 
 def optionInAction(choice, subjects, Schedule):
     if((choice == 'A') or (choice == 'a')):
+        os.system("cls")
+        print("Details of class: \n")
+        
+
         user = Subject.from_input()
         if (user.time[1] == ' '):
             user.time = '0' + user.time
@@ -38,12 +44,19 @@ def optionInAction(choice, subjects, Schedule):
             user.time = '0' + user.time
 
         subjects[user.name] = user
+        os.system("cls")
+
         print("Subject was added to you schedule\n")
         options()
         choice = input('Enter your choice:')
+
+        os.system("cls")
         optionInAction(choice, subjects, Schedule)
 
     elif((choice == 'B') or (choice == 'b')):
+
+        os.system("cls")
+
         print('This is all your classes:\n')
         for key in subjects:
             print(key)
@@ -51,20 +64,26 @@ def optionInAction(choice, subjects, Schedule):
         respuesta = input("Which one do you want to delete? ")
         if respuesta in subjects:
             delete = subjects.pop(respuesta)
-            print('Removed element: ', delete)
+            os.system("cls")
+            print('Removed element: ', respuesta)
+            
         else:
-            print('You do not have that subject!')
+            os.system("cls")
+            print('You do not have that subject!\n')
 
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
     elif ((choice == 'C') or (choice == 'c')):
+        os.system("cls")
         print('This is all your classes:\n')
         for key in subjects:
             print(key)
         print('\n')
         respuesta = input('What subject do you want to change? ')
+
+        os.system("cls")
         if respuesta in subjects:
             print('This is all the information of that subject:\n')
             print("Name: " + subjects[respuesta].name)
@@ -79,6 +98,7 @@ def optionInAction(choice, subjects, Schedule):
             print('\n')
             newInformation = input('What do you want to put instead? ')
             print('\n')
+            os.system("cls")
 
             if (change == 'Name'): 
                 subjects[respuesta].name = newInformation
@@ -100,15 +120,19 @@ def optionInAction(choice, subjects, Schedule):
             elif ((change == 'Zoom number') or (change == 'zoom number')):
                 subjects[respuesta].zoomNumber = newInformation
             else:
+                os.system("cls")
                 print('Change denied')
         else:
+            os.system("cls")
             print('That subject is not included\n')
+
 
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
     
     elif ((choice == 'D') or (choice == 'd')): 
+        os.system("cls")
 
         print('\n')
         for key in subjects:
@@ -135,16 +159,18 @@ def optionInAction(choice, subjects, Schedule):
             print()    
         print('\n')
         correction = input('Do you like your Schedule? (yes/no) ')
+        os.system("cls")
         if ((correction == 'Yes') or (correction == 'yes')):
             print('Nice!\n')
         else:
-            print('You can change it')
+            print('You can change it\n')
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
     elif ((choice == 'E')) or (choice == 'e'):
-        print('\n')
+        os.system("cls")
+    
         newFile = input('Create a file: \n')
 
         with open(newFile, "w+") as writer:
@@ -153,7 +179,9 @@ def optionInAction(choice, subjects, Schedule):
                     information = (Schedule[j][i])
                     writer.write(information)
                 writer.write("\n")
+        os.system("cls")
 
+        print("File created\n")
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
@@ -183,6 +211,8 @@ Schedule = [['     ','Monday','    ', 'Tuesday','    ', 'Wednesday','    ','Thur
         ,['05 pm','      ','    ','       ','    ','         ','    ','        ','    ','      ','    ','        ','    ']] 
 
 Level = [["Hard:     ", "Medium:    ", "Easy:    "]]
+
+os.system("cls")
 
 print("Hello, this is a Schedule programm!")    
 options()
