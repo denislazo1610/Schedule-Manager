@@ -1,5 +1,5 @@
 # Overview
-This is a schedule manager program. Everything started since my roommate is a freshman, and he does not know the univerity life works, and he was kinda lost. That is why I decided to create a program where students can organize their classes. 
+This is a schedule manager program. Everything started since my roommate is a freshman, and he does not know anything about the univerity life w, and he was lost in the first days. That is why I decided to create a program that can create schedule for freshmen students. This can contain information such as: The difficulty, the name of the professor, zoom meeting number, name of the subject, time of the subject and the day of the subject.
 
 
 
