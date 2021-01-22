@@ -1,6 +1,7 @@
 import os
 
 class Subject:
+    # This is the attributes of the class "Subject"
     def __init__(self, name, time, days, difficulty, professor, zoomNumber):
         self.name = name
         self.time = time
@@ -9,6 +10,7 @@ class Subject:
         self.professor = professor
         self.zoomNumber = zoomNumber
     
+    # In here, the user will be asked the information of every subject
     @classmethod
     def from_input(cls):
         return cls(
@@ -19,7 +21,8 @@ class Subject:
             input('Professor: '),
             input('Zoom number: ')
         )
-        
+
+# This is a function that will give options to the users.      
 def options():
     print("Choose a option:\n")
     print("\'A\' for adding a subject")
@@ -29,12 +32,16 @@ def options():
     print("\'E\' for write schedule in another file")
     print("\'Exit\' for exit of this programm\n")
 
+#This function depends on the answer from the previous function. 
+
 def optionInAction(choice, subjects, Schedule):
+#In here, the user is adding a subject to the schedule.
     if((choice == 'A') or (choice == 'a')):
         os.system("cls")
         print("Details of class: \n")
         
-
+#In this part, the time is being chnages, if the use put "2 pm", then it is going to be 
+#savved "02 pm". The reason is for the next functions. 
         user = Subject.from_input()
         if (user.time[1] == ' '):
             user.time = '0' + user.time
@@ -47,11 +54,14 @@ def optionInAction(choice, subjects, Schedule):
         os.system("cls")
 
         print("Subject was added to you schedule\n")
+# In here, we are asking to the user again the options. 
         options()
         choice = input('Enter your choice:')
 
         os.system("cls")
         optionInAction(choice, subjects, Schedule)
+
+#In this part, the user will be able to delete a subject that the user has.
 
     elif((choice == 'B') or (choice == 'b')):
 
@@ -68,13 +78,16 @@ def optionInAction(choice, subjects, Schedule):
             print('Removed element: ', respuesta)
             
         else:
+#If the user is trying to delete a subject that the user does not have, then this will happen.
             os.system("cls")
             print('You do not have that subject!\n')
 
+#in this part, we are giving to the user the options again
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
+#In this part, the user will be able to chnage the information of every subject that the user has. 
     elif ((choice == 'C') or (choice == 'c')):
         os.system("cls")
         print('This is all your classes:\n')
@@ -130,7 +143,9 @@ def optionInAction(choice, subjects, Schedule):
         options()
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
-    
+
+#In this part, the user will be able to see the schedule.
+   
     elif ((choice == 'D') or (choice == 'd')): 
         os.system("cls")
 
@@ -168,6 +183,7 @@ def optionInAction(choice, subjects, Schedule):
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
+#In this part, the program will  create another file containing all the added subjects
     elif ((choice == 'E')) or (choice == 'e'):
         os.system("cls")
     
@@ -186,9 +202,12 @@ def optionInAction(choice, subjects, Schedule):
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
+#In here, the user decide to exit from the program
     elif ((choice == 'Exit') or (choice == 'exit')):
         os.system("cls")
         print('Thank you')
+
+#In this part, if the user type other thing besides the options, this will happen
 
     else:
         os.system("cls")
@@ -197,6 +216,7 @@ def optionInAction(choice, subjects, Schedule):
         choice = input('Enter your choice:')
         optionInAction(choice, subjects, Schedule)
 
+#This is the schedule
 
 Schedule = [['     ','Monday','    ', 'Tuesday','    ', 'Wednesday','    ','Thursday','    ', 'Friday','    ', 'Saturday','    '] 
         , ['06 am','      ','    ','       ','    ','         ','    ','        ','    ','      ','    ','        ','    ']
